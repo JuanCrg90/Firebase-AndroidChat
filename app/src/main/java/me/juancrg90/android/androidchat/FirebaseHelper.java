@@ -82,7 +82,7 @@ public class FirebaseHelper {
         String keySender = getAuthUserEmail().replace(".", "_");
         String keyReceiver = receiver.replace(".", "_");
 
-        String keyChat = keySender + SEPARATOR + KeyReceiver;
+        String keyChat = keySender + SEPARATOR + keyReceiver;
 
         if(keySender.compareTo(keyReceiver) > 0) {
             keyChat = keyReceiver + SEPARATOR + keySender;
@@ -96,7 +96,7 @@ public class FirebaseHelper {
             Map<String, Object> updates = new HashMap<String, Object>();
             updates.put("online", online);
             getMyUserReference().updateChildren(updates);
-            notifyContactsOfConnectionChange(boolean online);
+            notifyContactsOfConnectionChange(online);
         }
     }
 
@@ -118,7 +118,7 @@ public class FirebaseHelper {
 
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     String email = child.getKey();
-                     DatabaseReference reference  = getContactsReference(email, myEmail );
+                     DatabaseReference reference  = getOneContactReference(email, myEmail );
                     reference.setValue(online);
                 }
                 if(signoff) {
