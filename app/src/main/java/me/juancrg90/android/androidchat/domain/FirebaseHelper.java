@@ -1,4 +1,4 @@
-package me.juancrg90.android.androidchat;
+package me.juancrg90.android.androidchat.domain;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -10,7 +10,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 /**
  * Created by JuanCrg90
