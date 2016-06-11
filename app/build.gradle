@@ -29,6 +29,8 @@ dependencies {
     compile 'com.google.firebase:firebase-auth:9.0.2'
 
     compile 'com.jakewharton:butterknife:7.0.1'
+
+    compile 'org.greenrobot:eventbus:3.0.0'
 }
 
 apply plugin: 'com.google.gms.google-services'
