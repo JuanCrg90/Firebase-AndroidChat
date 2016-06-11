@@ -15,8 +15,8 @@ public interface LoginView {
     void navigateToMainScreen();
     void loginError(String error);
 
-    void newUsersSuccess();
-    void newUsersError(String error);
+    void newUserSuccess();
+    void newUserError(String error);
 
 }
 
