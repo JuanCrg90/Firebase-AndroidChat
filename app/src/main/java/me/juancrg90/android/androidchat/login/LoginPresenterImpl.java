@@ -4,11 +4,12 @@ package me.juancrg90.android.androidchat.login;
  * Created by JuanCrg90
  */
 public class LoginPresenterImpl implements LoginPresenter {
-    LoginView loginView;
-    LoginInteractor loginInteractor;
+    private LoginView loginView;
+    private LoginInteractor loginInteractor;
 
     public LoginPresenterImpl(LoginView loginView) {
         this.loginView = loginView;
+        this.loginInteractor = new LoginInteractorImpl();
     }
 
 
@@ -18,7 +19,7 @@ public class LoginPresenterImpl implements LoginPresenter {
     }
 
     @Override
-    public void checkForAuthenticated() {
+    public void checkForAuthenticatedUser() {
         if(loginView != null) {
             loginView.disableInputs();
             loginView.showProgress();

@@ -3,6 +3,8 @@ package me.juancrg90.android.androidchat.contactList;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import me.juancrg90.android.androidchat.R;
+
 public class ContactListActivity extends AppCompatActivity {
 
     @Override
