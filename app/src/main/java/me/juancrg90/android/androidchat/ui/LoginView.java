@@ -1,4 +1,4 @@
-package me.juancrg90.android.androidchat.login;
+package me.juancrg90.android.androidchat.ui;
 
 /**
  * Created by JuanCrg90

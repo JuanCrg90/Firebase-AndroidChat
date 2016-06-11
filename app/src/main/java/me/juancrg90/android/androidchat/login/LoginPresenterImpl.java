@@ -1,12 +1,11 @@
 package me.juancrg90.android.androidchat.login;
 
-import android.util.Log;
-
 import org.greenrobot.eventbus.Subscribe;
 
 import me.juancrg90.android.androidchat.lib.EventBus;
 import me.juancrg90.android.androidchat.lib.GreenRobotEventBus;
 import me.juancrg90.android.androidchat.login.events.LoginEvent;
+import me.juancrg90.android.androidchat.ui.LoginView;
 
 /**
  * Created by JuanCrg90
@@ -94,8 +93,6 @@ public class LoginPresenterImpl implements LoginPresenter {
             loginView.hideProgress();
             loginView.enableInputs();
         }
-        Log.e("LoginPresenterImpl", "onFailedToRecoverSession");
-
     }
 
     private void onSignInSuccess() {

@@ -59,38 +59,10 @@ public class LoginRepositoryImpl implements  LoginRepository {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (!task.isSuccessful()) {
-                    Log.w("Error", "signInWithEmail", task.getException());
                     postEvent(LoginEvent.onSignInError, task.getException().toString());
                 }
                 else {
-                    Log.d("success", "signInWithEmail:onComplete:" + task.isSuccessful());
-                    myUserReference = helper.getMyUserReference();
-                    myUserReference.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            User currentUser = dataSnapshot.getValue(User.class);
-
-
-                            if(currentUser == null) {
-                                String email = helper.getAuthUserEmail();
-
-                                if(email != null) {
-                                    currentUser = new User();
-                                    myUserReference.setValue(currentUser);
-                                }
-                            }
-
-                            helper.changeUserConnectionStatus(User.ONLINE);
-                            postEvent(LoginEvent.onSignInSuccess);
-
-                        }
-
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
-
-                        }
-                    });
-
+                    initSignIn();
                 }
 
             }
@@ -99,7 +71,46 @@ public class LoginRepositoryImpl implements  LoginRepository {
 
     @Override
     public void checkSession() {
-        postEvent(LoginEvent.onFailedToRecoverSession);
+        if(authReference.getCurrentUser() != null) {
+            initSignIn();
+        }
+        else {
+            postEvent(LoginEvent.onFailedToRecoverSession);
+        }
+
+    }
+
+    private void initSignIn() {
+        myUserReference = helper.getMyUserReference();
+        myUserReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                User currentUser = dataSnapshot.getValue(User.class);
+
+                if(currentUser == null) {
+                    registerNewUser();
+                }
+
+                helper.changeUserConnectionStatus(User.ONLINE);
+                postEvent(LoginEvent.onSignInSuccess);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void registerNewUser() {
+        String email = helper.getAuthUserEmail();
+
+        if(email != null) {
+            User currentUser = new User();
+            currentUser.setEmail(email);
+            myUserReference.setValue(currentUser);
+        }
     }
 
     private void postEvent(int type, String errorMessage) {
