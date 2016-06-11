@@ -11,11 +11,14 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 import java.util.Map;
 
+import me.juancrg90.android.androidchat.entities.User;
+
 /**
  * Created by JuanCrg90
  */
 public class FirebaseHelper {
     private DatabaseReference databaseReference;
+    private FirebaseAuth authReference;
 
     private final static String SEPARATOR = "__";
     private final static String CHATS_PATH = "chats";
@@ -32,10 +35,15 @@ public class FirebaseHelper {
 
     public FirebaseHelper() {
         this.databaseReference = FirebaseDatabase.getInstance().getReference();
+        this.authReference = FirebaseAuth.getInstance();
     }
 
     public DatabaseReference getDataReference() {
         return databaseReference;
+    }
+
+    public FirebaseAuth getAuthReference() {
+        return authReference;
     }
 
     public String getAuthUserEmail() {
@@ -104,7 +112,7 @@ public class FirebaseHelper {
     }
 
     public void signoff() {
-        notifyContactsOfConnectionChange(false, true);
+        notifyContactsOfConnectionChange(User.OFFLINE, true);
     }
 
 

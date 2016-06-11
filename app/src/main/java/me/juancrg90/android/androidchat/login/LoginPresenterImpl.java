@@ -96,7 +96,6 @@ public class LoginPresenterImpl implements LoginPresenter {
         }
         Log.e("LoginPresenterImpl", "onFailedToRecoverSession");
 
-        loginInteractor.checkSession();
     }
 
     private void onSignInSuccess() {
