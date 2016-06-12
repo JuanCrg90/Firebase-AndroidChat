@@ -1,10 +1,10 @@
-package me.juancrg90.android.androidchat.contactList.ui.adapters;
+package me.juancrg90.android.androidchat.lib;
 
 import android.widget.ImageView;
 
 /**
  * Created by JuanCrg90
  */
-public interface ImageLoading {
+public interface ImageLoader {
     void load(ImageView imgAvatar, String s);
 }
