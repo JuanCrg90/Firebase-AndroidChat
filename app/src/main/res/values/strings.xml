@@ -8,5 +8,10 @@
     <string name="login.error.message.signup">Create Account Failed %s</string>
     <string name="login.notice.message.signup">Account Created</string>
 
+    <string name="contactlist.menu.action.signoff">Logout</string>
+    <string name="contactlist.title">Contacts</string>
+
+
+
 
 </resources>
