@@ -11,8 +11,11 @@
     <string name="contactlist.menu.action.signoff">Logout</string>
     <string name="contactlist.title">Contacts</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="addcontact.message.title">Add contact</string>
+    <string name="addcontact.message.add">Add</string>
+    <string name="addcontact.message.cancel">Cancel</string>
+    <string name="addcontact.message.contactadded">Contact added</string>
+    <string name="addcontact.error.message">The user cannot be added</string>
 
 
 </resources>
