@@ -5,7 +5,7 @@ import org.greenrobot.eventbus.Subscribe;
 import me.juancrg90.android.androidchat.lib.EventBus;
 import me.juancrg90.android.androidchat.lib.GreenRobotEventBus;
 import me.juancrg90.android.androidchat.login.events.LoginEvent;
-import me.juancrg90.android.androidchat.ui.LoginView;
+import me.juancrg90.android.androidchat.login.ui.LoginView;
 
 /**
  * Created by JuanCrg90

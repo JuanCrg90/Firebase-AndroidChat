@@ -1,4 +1,4 @@
-package me.juancrg90.android.androidchat.ui;
+package me.juancrg90.android.androidchat.login.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,10 +15,9 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import me.juancrg90.android.androidchat.R;
-import me.juancrg90.android.androidchat.contactList.ContactListActivity;
+import me.juancrg90.android.androidchat.contactList.ui.ContactListActivity;
 import me.juancrg90.android.androidchat.login.LoginPresenter;
 import me.juancrg90.android.androidchat.login.LoginPresenterImpl;
-import me.juancrg90.android.androidchat.ui.LoginView;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
 
