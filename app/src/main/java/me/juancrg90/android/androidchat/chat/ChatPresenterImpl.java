@@ -1,5 +1,7 @@
 package me.juancrg90.android.androidchat.chat;
 
+import org.greenrobot.eventbus.Subscribe;
+
 import me.juancrg90.android.androidchat.chat.events.ChatEvent;
 import me.juancrg90.android.androidchat.chat.ui.ChatView;
 import me.juancrg90.android.androidchat.entities.User;
@@ -62,6 +64,7 @@ public class ChatPresenterImpl implements ChatPresenter {
     }
 
     @Override
+    @Subscribe
     public void onEventMainThrread(ChatEvent event) {
 
         if(view != null) {
