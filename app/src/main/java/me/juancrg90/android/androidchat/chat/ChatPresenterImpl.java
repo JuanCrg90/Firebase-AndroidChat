@@ -1,6 +1,7 @@
 package me.juancrg90.android.androidchat.chat;
 
 import me.juancrg90.android.androidchat.chat.events.ChatEvent;
+import me.juancrg90.android.androidchat.chat.ui.ChatView;
 
 /**
  * Created by JuanCrg90

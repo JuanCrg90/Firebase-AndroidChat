@@ -1,4 +1,4 @@
-package me.juancrg90.android.androidchat.chat;
+package me.juancrg90.android.androidchat.chat.ui;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -11,11 +11,15 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 import me.juancrg90.android.androidchat.R;
-import me.juancrg90.android.androidchat.chat.events.ChatEvent;
+import me.juancrg90.android.androidchat.chat.ui.adapters.ChatAdapter;
+import me.juancrg90.android.androidchat.chat.ChatPresenter;
+import me.juancrg90.android.androidchat.chat.ChatPresenterImpl;
 import me.juancrg90.android.androidchat.domain.AvatarHelper;
 import me.juancrg90.android.androidchat.entities.ChatMessage;
 import me.juancrg90.android.androidchat.lib.GlideImageLoader;
@@ -63,10 +67,12 @@ public class ChatActivity extends AppCompatActivity implements ChatView {
 
 
     private void setupAdapter() {
+        adapter = new ChatAdapter(this, new ArrayList<ChatMessage>());
     }
 
     private void setupRecyclerView() {
         messageRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        messageRecyclerView.setAdapter(adapter);
     }
 
 
